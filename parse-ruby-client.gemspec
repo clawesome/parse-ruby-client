@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alan deLevie", "Adam Alpern", "David Brownman", "rhymes"]
 
 
-  spec.summary       = %q{A simple Ruby client for the parse.com REST API}
+  spec.summary       = %q{A simple Ruby client for the Parse REST API}
   spec.homepage      = "http://github.com/adelevie/parse-ruby-client"
   spec.license       = "MIT"
 
@@ -19,12 +19,13 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.1'
 
-  spec.add_dependency 'faraday', '>= 0.9.2'
-  spec.add_dependency 'faraday_middleware', '~> 0.10.0'
+  spec.add_dependency 'faraday', ['>= 0.9.2', '< 0.15.0']
+  spec.add_dependency 'faraday_middleware', '>= 0.9.2'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'byebug' if RUBY_ENGINE == 'ruby'
   spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'dotenv'
   spec.add_development_dependency 'fasterer'
   spec.add_development_dependency 'json', '~> 1.8.3'
   spec.add_development_dependency 'minitest'
@@ -33,7 +34,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-doc'
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'webmock'

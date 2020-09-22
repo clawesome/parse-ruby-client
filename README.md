@@ -12,6 +12,18 @@ gem 'parse-ruby-client', git: 'https://github.com/adelevie/parse-ruby-client.git
 
 and it'll use the current master branch in your app.
 
+## Deprecated Functions
+
+In Feb 2017 we merged breakging changes in preparation for a `v1.0` release. After a year of deprecation notices, we felt it was reasonable to do now. Unfortunately, not being current on rubygems this was hard to do safely and we apologize for any headache this may cause. 
+
+If you want to freeze your build and continue using the (now unsupported) `Parse.init`, change your gemfile to the following line:
+
+```ruby
+gem 'parse-ruby-client', git: 'https://github.com/adelevie/parse-ruby-client.git', ref: '98596a04dfc30295c1d078c58c31b4cea299e8ca'
+```
+
+Thanks for sticking with us!
+
 ## Summary
 
 parse-ruby-client lets you interact with Parse using Ruby. There are many uses. For example:
@@ -35,11 +47,11 @@ We support Ruby 2.1 and newer and JRuby 9000. Older versions are not supported, 
 require 'parse-ruby-client'
 
 Parse.create :application_id      => "<your_app_id>", # required
-             :api_key             => "<your_api_key>", # optional, defaults to nil
+             :host                => 'http://localhost:1337', # required
+             :path                => '/parse', # optional, defaults to '/parse'
              :master_key          => "<your_master_key>", # optional, defaults to nil
+             :api_key             => "<your_api_key>", # optional, defaults to nil
              :quiet               => true | false,  # optional, defaults to false
-             :host                => 'http://localhost:1337', # optional, defaults to 'https://api.parse.com'
-             :path                => '/parse', # optional, defaults to '/1'
              :get_method_override => true | false, # optional, defaults to true
 ```
 
@@ -1080,7 +1092,7 @@ The response body is a `Hash` object containing the name of the file, which is t
 
 ```ruby
 {"url"=>
-  "http://files.parse.com/372fcbb9-7eae-4b9a-abc8-6da97fcac50d/98f06e15-d6e6-42a9-a9cd-7d28ec98052c-hello.txt",
+  "http://something.com/somewhere/98f06e15-d6e6-42a9-a9cd-7d28ec98052c-hello.txt",
  "name"=>"98f06e15-d6e6-42a9-a9cd-7d28ec98052c-hello.txt"}
 ```
 
